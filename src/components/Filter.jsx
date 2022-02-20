@@ -7,9 +7,18 @@ import { ride, user } from "../ride";
 const Filter = () => {
   const [iconStateOne, setIconStateOne] = useState(false);
   const [iconStateTwo, setIconStateTwo] = useState(false);
+  const [filterByState, setFilterByState] = useState("");
+  const [filterByCity, setFilterByCity] = useState("");
   const dispatch = useDispatch();
   const filterState = useSelector((state) => state.filterModuleOpen);
   const reducerState = useSelector((state) => state);
+  const availableRideFilteredByState = ride.filter((rideItem) => {
+    return filterByState === rideItem.state;
+  });
+  const availableRideFilteredByCity = ride.filter((rideItem) => {
+    return filterByCity === rideItem.city;
+  });
+  console.log(availableRideFilteredByState, availableRideFilteredByCity);
 
   return (
     <div>
@@ -22,12 +31,15 @@ const Filter = () => {
               onClick={() => {
                 setIconStateOne(!iconStateOne);
               }}
+              onChange={(e) => {
+                setFilterByState(e.target.value);
+              }}
               name="state"
               id="state"
               className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
             >
               <option value="state">State</option>
-              <option value="Edo">Edo</option>
+              <option value="Maharashtra">Maharashtra</option>
               <option value="Lagos">Lagos</option>
             </select>
             <span className="absolute text-white  top-1 right-1">
@@ -39,6 +51,9 @@ const Filter = () => {
           </div>
           <div className="flex relative">
             <select
+              onChange={(e) => {
+                setFilterByCity(e.target.value);
+              }}
               onClick={() => {
                 setIconStateTwo(!iconStateTwo);
               }}
@@ -47,7 +62,7 @@ const Filter = () => {
               className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
             >
               <option value="city">City</option>
-              <option value="Warri">Warri</option>
+              <option value="Panvel">Panvel</option>
               <option value="Lekki">Lekki</option>
             </select>
             <span className="absolute text-white  top-1 right-1">
