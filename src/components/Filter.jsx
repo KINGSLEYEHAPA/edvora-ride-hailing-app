@@ -11,7 +11,7 @@ const Filter = () => {
   const [filterByCity, setFilterByCity] = useState("");
   const dispatch = useDispatch();
   const filterState = useSelector((state) => state.filterModuleOpen);
-  const reducerState = useSelector((state) => state);
+
   const availableRideFilteredByState = ride.filter((rideItem) => {
     return filterByState === rideItem.state;
   });
