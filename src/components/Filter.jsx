@@ -79,9 +79,9 @@ const Filter = () => {
             >
               <option value="state">State</option>
 
-              {ride.map((stateItem) => {
+              {ride.map((stateItem, index) => {
                 return (
-                  <option key={stateItem.index} value={stateItem.state}>
+                  <option key={index} value={stateItem.state}>
                     {stateItem.state}
                   </option>
                 );

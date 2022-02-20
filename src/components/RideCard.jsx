@@ -5,12 +5,36 @@ const RideCard = ({
   id,
   origin_station_code,
   station_path,
-  date,
   city,
   state,
   rideDate,
   distance,
 }) => {
+  const date = new Date().getDate();
+  const month = new Date().getMonth();
+  const year = new Date().getFullYear();
+  const hours = new Date().getHours();
+  const mins = new Date().getMinutes();
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const today = `${date} ${months[month]} ${year} ${hours}:${mins} `;
+
+  console.log(date, month, year, hours, mins);
+
   return (
     <div className="lg:bg-neutral-900 lg:flex lg:justify-between  lg:items-start lg:p-6 lg:rounded-xl lg:text-white">
       <div>
@@ -28,7 +52,7 @@ const RideCard = ({
           station_path: <span className="lg:text-white">{station_path}</span>
         </p>
         <p className="lg:text-warmGray-300">
-          Date: <span className="lg:text-white">{rideDate}</span>
+          Date: <span className="lg:text-white">{today}</span>
         </p>
         <p className="lg:text-warmGray-300">
           Distance: <span className="lg:text-white">{distance}</span>
