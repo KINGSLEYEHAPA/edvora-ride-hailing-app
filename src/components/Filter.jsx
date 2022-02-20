@@ -2,22 +2,19 @@ import React, { useState } from "react";
 import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { myActions } from "../redux/actions/actionTypes";
+import { ride, user } from "../ride";
 
 const Filter = () => {
   const [iconStateOne, setIconStateOne] = useState(false);
   const [iconStateTwo, setIconStateTwo] = useState(false);
   const dispatch = useDispatch();
   const filterState = useSelector((state) => state.filterModuleOpen);
+  const reducerState = useSelector((state) => state);
 
   return (
     <div>
       {filterState && (
-        <div
-          onClick={() => {
-            dispatch({ type: myActions.OPEN_FILTER });
-          }}
-          className="absolute lg:w-48 lg:h-44 lg:flex lg:flex-col lg:top-7 lg:right-2 shadow  bg-neutral-900 lg:justify-between lg:space-y-5 lg:py-4 px-5  rounded-xl"
-        >
+        <div className="absolute lg:w-48 lg:h-44 lg:flex lg:flex-col lg:top-6 lg:right-2 shadow  bg-neutral-900 lg:justify-between lg:space-y-5 lg:py-4 px-5  rounded-xl">
           <h2 className="text-neutral-700  text-md">Filters</h2>
           <hr className="text-neutral-700 border-t-3 border-neutral-700 relative bottom-3"></hr>
           <div className="flex relative">

@@ -56,10 +56,12 @@ function App() {
           onClick={() => {
             dispatch({ type: myActions.OPEN_FILTER });
           }}
-          className="lg:flex lg:gap-2 lg:cursor-pointer lg:relative"
+          className="lg:flex lg:gap-2 lg:cursor-pointer lg:relative lg:left-96"
         >
           <img className="lg:w-5 lg:h-5 lg:pt-2" src={filterMenu} alt="" />
           <h4>Filters</h4>
+        </div>
+        <div className="relative">
           <Filter />
         </div>
       </div>

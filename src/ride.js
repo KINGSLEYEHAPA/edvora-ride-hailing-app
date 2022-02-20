@@ -1,4 +1,4 @@
-export const Ride = [
+export const ride = [
   {
     id: "001",
     origin_station_code: 23,
