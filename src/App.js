@@ -1,10 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import filterMenu from "./assets/images/Vector.png";
+import Filter from "./components/Filter";
 
 function App() {
   return (
-    <div className="w-full h-screen bg-neutral-700">
+    <div className="w-full h-screen bg-neutral-700 lg:min-w-screen">
       <Header />
       <div className="lg:w-full lg:h-20 lg:flex lg:justify-between lg:items-center lg:p-6 lg:text-white lg:px-9">
         <div className="lg:space-x-4 lg:text-warmGray-300">
@@ -48,9 +49,10 @@ function App() {
             Past Rides (10){" "}
           </NavLink>
         </div>
-        <div className="lg:flex lg:gap-2 lg:cursor-pointer">
+        <div className="lg:flex lg:gap-2 lg:cursor-pointer lg:relative">
           <img className="lg:w-5 lg:h-5 lg:pt-2" src={filterMenu} alt="" />
           <h4>Filters</h4>
+          <Filter />
         </div>
       </div>
       <Outlet />

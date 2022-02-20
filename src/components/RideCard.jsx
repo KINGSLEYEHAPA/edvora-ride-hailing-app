@@ -8,20 +8,20 @@ const RideCard = () => {
         <img src={mapImage} alt="" />
       </div>
       <div className="lg:flex-2 lg:ml-1 lg:space-y-2 lg:relative lg:right-48">
-        <p className="lg:text-gray-400">
+        <p className="lg:text-warmGray-300">
           Ride Id: <span className="lg:text-white">002</span>
         </p>
-        <p className="lg:text-gray-400">
+        <p className="lg:text-warmGray-300">
           Origin Station: <span className="lg:text-white">20</span>
         </p>
-        <p className="lg:text-gray-400">
+        <p className="lg:text-warmGray-300">
           station_path:{" "}
           <span className="lg:text-white">[20,39,40,42,54,63,72,88,98]</span>
         </p>
-        <p className="lg:text-gray-400">
+        <p className="lg:text-warmGray-300">
           Date: <span className="lg:text-white">15th feb 2022 16:33</span>
         </p>
-        <p className="lg:text-gray-400">
+        <p className="lg:text-warmGray-300">
           Distance: <span className="lg:text-white">1</span>
         </p>
       </div>
