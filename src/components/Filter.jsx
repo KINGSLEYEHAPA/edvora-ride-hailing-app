@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { myActions } from "../redux/actions/actionTypes";
@@ -20,6 +20,33 @@ const Filter = () => {
   });
   console.log(availableRideFilteredByState, availableRideFilteredByCity);
 
+  useEffect(() => {
+    if (filterByState.length > 0 && filterByCity.length === 0) {
+      dispatch({
+        type: myActions.SORT_BY_STATE,
+        payload: availableRideFilteredByState,
+      });
+    } else if (filterByCity.length > 0 && filterByState.length === 0) {
+      dispatch({
+        type: myActions.SORT_BY_CITY,
+        payload: availableRideFilteredByCity,
+      });
+    } else if (filterByState.length > 0 && filterByCity.length > 0) {
+      const stateAndCitySort = ride.filter((combineData) => {
+        return (
+          combineData.state === filterByState &&
+          combineData.city === filterByCity
+        );
+      });
+      dispatch({
+        type: myActions.STATE_AND_CITY_SEARCH,
+        payload: stateAndCitySort,
+      });
+    } else {
+      dispatch({ type: myActions.RIDE_DATA, payload: ride });
+    }
+  }, [dispatch]);
+
   return (
     <div>
       {filterState && (
@@ -39,8 +66,14 @@ const Filter = () => {
               className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
             >
               <option value="state">State</option>
-              <option value="Maharashtra">Maharashtra</option>
-              <option value="Lagos">Lagos</option>
+
+              {ride.map((stateItem) => {
+                return (
+                  <option key={stateItem.index} value={stateItem.state}>
+                    {stateItem.state}
+                  </option>
+                );
+              })}
             </select>
             <span className="absolute text-white  top-1 right-1">
               {iconStateOne && <VscTriangleUp />}
@@ -62,8 +95,13 @@ const Filter = () => {
               className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
             >
               <option value="city">City</option>
-              <option value="Panvel">Panvel</option>
-              <option value="Lekki">Lekki</option>
+              {ride.map((cityItem) => {
+                return (
+                  <option key={cityItem.index} value={cityItem.city}>
+                    {cityItem.city}
+                  </option>
+                );
+              })}
             </select>
             <span className="absolute text-white  top-1 right-1">
               {iconStateTwo && <VscTriangleUp />}
