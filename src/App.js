@@ -2,8 +2,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import filterMenu from "./assets/images/Vector.png";
 import Filter from "./components/Filter";
+import { myActions } from "./redux/actions/actionTypes";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
   return (
     <div className="w-full h-screen bg-neutral-700 lg:min-w-screen">
       <Header />
@@ -49,7 +52,12 @@ function App() {
             Past Rides (10){" "}
           </NavLink>
         </div>
-        <div className="lg:flex lg:gap-2 lg:cursor-pointer lg:relative">
+        <div
+          onClick={() => {
+            dispatch({ type: myActions.OPEN_FILTER });
+          }}
+          className="lg:flex lg:gap-2 lg:cursor-pointer lg:relative"
+        >
           <img className="lg:w-5 lg:h-5 lg:pt-2" src={filterMenu} alt="" />
           <h4>Filters</h4>
           <Filter />

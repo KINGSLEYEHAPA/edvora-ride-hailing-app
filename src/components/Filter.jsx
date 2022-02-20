@@ -1,43 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
+import { useSelector, useDispatch } from "react-redux";
+import { myActions } from "../redux/actions/actionTypes";
 
 const Filter = () => {
+  const [iconStateOne, setIconStateOne] = useState(false);
+  const [iconStateTwo, setIconStateTwo] = useState(false);
+  const dispatch = useDispatch();
+  const filterState = useSelector((state) => state.filterModuleOpen);
+
   return (
-    <div className="absolute lg:w-48 lg:h-44 lg:flex lg:flex-col lg:top-7 lg:right-2 shadow  bg-neutral-900 lg:justify-between lg:space-y-5 lg:py-4 px-5  rounded-xl">
-      <h2 className="text-neutral-700  text-md">Filters</h2>
-      <hr className="text-neutral-700 border-t-3 border-neutral-700 relative bottom-3"></hr>
-      <div className="flex relative">
-        <select
-          name="state"
-          id="state"
-          className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded"
+    <div>
+      {filterState && (
+        <div
+          onClick={() => {
+            dispatch({ type: myActions.OPEN_FILTER });
+          }}
+          className="absolute lg:w-48 lg:h-44 lg:flex lg:flex-col lg:top-7 lg:right-2 shadow  bg-neutral-900 lg:justify-between lg:space-y-5 lg:py-4 px-5  rounded-xl"
         >
-          <option value="volvo">Edo</option>
-          <option value="saab">Lagos</option>
-        </select>
-        <span className="absolute text-neutral-700 top-0.5 right-1">
-          <VscTriangleUp />
-        </span>
-        <span className="absolute text-neutral-700 top-0.5 right-1">
-          <VscTriangleDown />
-        </span>
-      </div>
-      <div className="flex relative">
-        <select
-          name="city"
-          id="city"
-          className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded"
-        >
-          <option value="volvo">Warri</option>
-          <option value="saab">Lekki</option>
-        </select>
-        <span className="absolute text-neutral-700 top-0.5 right-1">
-          <VscTriangleUp />
-        </span>
-        <span className="absolute text-neutral-700 top-0.5 right-1">
-          <VscTriangleDown />
-        </span>
-      </div>
+          <h2 className="text-neutral-700  text-md">Filters</h2>
+          <hr className="text-neutral-700 border-t-3 border-neutral-700 relative bottom-3"></hr>
+          <div className="flex relative">
+            <select
+              onClick={() => {
+                setIconStateOne(!iconStateOne);
+              }}
+              name="state"
+              id="state"
+              className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
+            >
+              <option value="state">State</option>
+              <option value="Edo">Edo</option>
+              <option value="Lagos">Lagos</option>
+            </select>
+            <span className="absolute text-white  top-1 right-1">
+              {iconStateOne && <VscTriangleUp />}
+            </span>
+            <span className="absolute text-white  top-1 right-1">
+              {!iconStateOne && <VscTriangleDown />}
+            </span>
+          </div>
+          <div className="flex relative">
+            <select
+              onClick={() => {
+                setIconStateTwo(!iconStateTwo);
+              }}
+              name="city"
+              id="city"
+              className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
+            >
+              <option value="city">City</option>
+              <option value="Warri">Warri</option>
+              <option value="Lekki">Lekki</option>
+            </select>
+            <span className="absolute text-white  top-1 right-1">
+              {iconStateTwo && <VscTriangleUp />}
+            </span>
+            <span className="absolute text-white  top-1 right-1">
+              {!iconStateTwo && <VscTriangleDown />}
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
