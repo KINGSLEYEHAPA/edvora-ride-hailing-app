@@ -29,6 +29,36 @@ export const ride = [
     state: "Maharashtra",
     city: "Panvel",
   },
+  {
+    id: "004",
+    origin_station_code: 13,
+    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    destination_station_code: 91,
+    date: 1644924365,
+    map_url: "url",
+    state: "Lagos",
+    city: "Lekki",
+  },
+  {
+    id: "005",
+    origin_station_code: 13,
+    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    destination_station_code: 91,
+    date: 1644924365,
+    map_url: "url",
+    state: "Lagos",
+    city: "Igando",
+  },
+  {
+    id: "006",
+    origin_station_code: 13,
+    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    destination_station_code: 91,
+    date: 1644924365,
+    map_url: "url",
+    state: "Maharashtra",
+    city: "Panvel",
+  },
 ];
 
 export const user = {

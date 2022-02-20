@@ -21,17 +21,26 @@ const Filter = () => {
   console.log(availableRideFilteredByState, availableRideFilteredByCity);
 
   useEffect(() => {
-    if (filterByState.length > 0 && filterByCity.length === 0) {
+    if (
+      availableRideFilteredByState.length > 0 &&
+      availableRideFilteredByCity.length === 0
+    ) {
       dispatch({
         type: myActions.SORT_BY_STATE,
         payload: availableRideFilteredByState,
       });
-    } else if (filterByCity.length > 0 && filterByState.length === 0) {
+    } else if (
+      availableRideFilteredByCity.length > 0 &&
+      availableRideFilteredByState.length === 0
+    ) {
       dispatch({
         type: myActions.SORT_BY_CITY,
         payload: availableRideFilteredByCity,
       });
-    } else if (filterByState.length > 0 && filterByCity.length > 0) {
+    } else if (
+      availableRideFilteredByState.length > 0 &&
+      availableRideFilteredByCity.length > 0
+    ) {
       const stateAndCitySort = ride.filter((combineData) => {
         return (
           combineData.state === filterByState &&
@@ -42,10 +51,13 @@ const Filter = () => {
         type: myActions.STATE_AND_CITY_SEARCH,
         payload: stateAndCitySort,
       });
-    } else {
+    } else if (
+      availableRideFilteredByState.length === 0 &&
+      availableRideFilteredByCity.length === 0
+    ) {
       dispatch({ type: myActions.RIDE_DATA, payload: ride });
     }
-  }, [dispatch]);
+  }, [dispatch, filterByCity, filterByState]);
 
   return (
     <div>
@@ -97,7 +109,7 @@ const Filter = () => {
               <option value="city">City</option>
               {ride.map((cityItem) => {
                 return (
-                  <option key={cityItem.index} value={cityItem.city}>
+                  <option key={cityItem.id} value={cityItem.city}>
                     {cityItem.city}
                   </option>
                 );
