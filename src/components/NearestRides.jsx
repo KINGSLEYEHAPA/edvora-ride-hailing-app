@@ -6,13 +6,42 @@ import { user } from "../ride";
 const NearestRides = () => {
   const availableRideFromFilter = useSelector((state) => state.availableRide);
 
-  availableRideFromFilter.length !== 0 &&
-    availableRideFromFilter.map((availableRideItem, rideIndex) => {
+  const distanceFromStationArray = availableRideFromFilter.map(
+    (availableRideItem, rideIndex) => {
       const distanceDiff = availableRideItem.station_path.map((station) => {
-        return [station - user.station_code, rideIndex];
+        return station - user.station_code;
       });
-      console.log(distanceDiff);
+
+      return distanceDiff;
+    }
+  );
+
+  const newSortedDiffInDistance = distanceFromStationArray.map((distance) => {
+    const sorted = distance.sort(function (a, b) {
+      return a - b;
     });
+
+    const positiveDistances = sorted.filter((sort) => {
+      return sort >= 0;
+    });
+
+    return positiveDistances;
+  });
+
+  const lowestDistanceToStation = newSortedDiffInDistance.map(
+    (lowestDistance) => {
+      return lowestDistance[0];
+    }
+  );
+
+  const lowestDistanceToStationAndIndex = lowestDistanceToStation.map(
+    (item, index) => {
+      return [item, index];
+    }
+  );
+  console.log(lowestDistanceToStationAndIndex);
+  lowestDistanceToStationAndIndex.sort((a, b) => a[1] - b[1]);
+  console.log(lowestDistanceToStationAndIndex);
 
   return (
     <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">

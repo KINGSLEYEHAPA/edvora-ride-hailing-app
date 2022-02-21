@@ -59,6 +59,14 @@ const Filter = () => {
     }
   }, [dispatch, filterByCity, filterByState]);
 
+  let uniqueRideDataByState = [
+    ...new Map(ride.map((item) => [item["state"], item])).values(),
+  ];
+  let uniqueRideDataByCity = [
+    ...new Map(ride.map((item) => [item["city"], item])).values(),
+  ];
+  console.log(uniqueRideDataByState, uniqueRideDataByCity);
+
   return (
     <div>
       {filterState && (
@@ -79,7 +87,7 @@ const Filter = () => {
             >
               <option value="state">State</option>
 
-              {ride.map((stateItem, index) => {
+              {uniqueRideDataByState.map((stateItem, index) => {
                 return (
                   <option key={index} value={stateItem.state}>
                     {stateItem.state}
@@ -107,7 +115,7 @@ const Filter = () => {
               className=" w-full bg-neutral-700 p-1 text-sm outline-none rounded appearance-none px-2"
             >
               <option value="city">City</option>
-              {ride.map((cityItem) => {
+              {uniqueRideDataByCity.map((cityItem) => {
                 return (
                   <option key={cityItem.id} value={cityItem.city}>
                     {cityItem.city}
