@@ -12,6 +12,8 @@ const RideCard = ({
   distance,
 }) => {
   let todayDate = new Date();
+  console.log(dataConverter(rideDate));
+  console.log(dataConverter(todayDate));
 
   return (
     <div className="lg:bg-neutral-900 lg:flex lg:justify-between  lg:items-start lg:p-6 lg:rounded-xl lg:text-white">
