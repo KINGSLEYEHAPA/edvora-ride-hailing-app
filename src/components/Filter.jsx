@@ -18,7 +18,6 @@ const Filter = () => {
   const availableRideFilteredByCity = ride.filter((rideItem) => {
     return filterByCity === rideItem.city;
   });
-  console.log(availableRideFilteredByState, availableRideFilteredByCity);
 
   useEffect(() => {
     if (
@@ -65,7 +64,6 @@ const Filter = () => {
   let uniqueRideDataByCity = [
     ...new Map(ride.map((item) => [item["city"], item])).values(),
   ];
-  console.log(uniqueRideDataByState, uniqueRideDataByCity);
 
   return (
     <div>

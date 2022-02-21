@@ -39,13 +39,21 @@ const NearestRides = () => {
       return [item, index];
     }
   );
-  console.log(lowestDistanceToStationAndIndex);
-  lowestDistanceToStationAndIndex.sort((a, b) => a[1] - b[1]);
-  console.log(lowestDistanceToStationAndIndex);
+
+  lowestDistanceToStationAndIndex.sort((a, b) => a[0] - b[0]);
+  const indexArray = [];
+  lowestDistanceToStationAndIndex.forEach((item) => {
+    indexArray.push(item[1]);
+  });
+  const sortedNearestRide = indexArray.map((item) => {
+    return availableRideFromFilter[item];
+  });
+
+  console.log(sortedNearestRide);
 
   return (
     <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">
-      {availableRideFromFilter.map((item, index) => {
+      {sortedNearestRide.map((item, index) => {
         return (
           <RideCard
             key={index}
