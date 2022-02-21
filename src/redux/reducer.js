@@ -3,14 +3,6 @@ import { myActions } from "./actions/actionTypes";
 const dataStore = {
   availableRide: [],
 
-  user: [
-    {
-      station_code: 40,
-      name: "Dhruv Singh",
-      profile_key: "url",
-    },
-  ],
-
   filterModuleOpen: false,
 };
 

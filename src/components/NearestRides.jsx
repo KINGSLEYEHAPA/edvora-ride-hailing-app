@@ -48,12 +48,15 @@ const NearestRides = () => {
   const sortedNearestRide = indexArray.map((item) => {
     return availableRideFromFilter[item];
   });
+  const todayInSeconds = new Date(new Date()).getTime() / 1000;
 
-  console.log(sortedNearestRide);
+  const nearestRideCloserToday = sortedNearestRide.filter((item) => {
+    return todayInSeconds - item.date < 86400 && item.date < todayInSeconds;
+  });
 
   return (
     <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">
-      {sortedNearestRide.map((item, index) => {
+      {nearestRideCloserToday.map((item, index) => {
         return (
           <RideCard
             key={index}
