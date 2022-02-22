@@ -4,6 +4,9 @@ const dataStore = {
   availableRide: [],
 
   filterModuleOpen: false,
+  pastRideCount: "",
+  upcomingRideCount: "",
+  nearestRideCount: "",
 };
 
 const rideReducer = (state = dataStore, action) => {
@@ -30,6 +33,22 @@ const rideReducer = (state = dataStore, action) => {
       return {
         ...state,
         availableRide: payload,
+      };
+    case myActions.PAST_RIDES_UPDATE:
+      return {
+        ...state,
+        pastRideCount: payload,
+      };
+    case myActions.UPCOMING_RIDES_UPDATE:
+      return {
+        ...state,
+        upcomingRideCount: payload,
+      };
+
+    case myActions.NEAREST_RIDES_UPDATE:
+      return {
+        ...state,
+        nearestRideCount: payload,
       };
     default:
       return state;

@@ -1,7 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import RideCard from "./RideCard";
 import { user } from "../ride";
+import { myActions } from "../redux/actions/actionTypes";
 
 const NearestRides = () => {
   const availableRideFromFilter = useSelector((state) => state.availableRide);
@@ -52,6 +53,11 @@ const NearestRides = () => {
 
   const nearestRideCloserToday = sortedNearestRide.filter((item) => {
     return todayInSeconds - item.date < 86400 && item.date < todayInSeconds;
+  });
+  const dispatch = useDispatch();
+  dispatch({
+    type: myActions.NEAREST_RIDES_UPDATE,
+    payload: nearestRideCloserToday.length,
   });
 
   return (

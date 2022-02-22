@@ -20,7 +20,7 @@ const RideCard = ({
       <div>
         <img src={mapImage} alt="" />
       </div>
-      <div className="lg:flex-2 lg:ml-1 lg:space-y-2 lg:relative lg:right-48">
+      <div className="      lg:flex-2 lg:ml-1 lg:space-y-2 lg:relative lg:right-48">
         <p className="lg:text-warmGray-300">
           Ride Id: <span className="lg:text-white">{id}</span>
         </p>

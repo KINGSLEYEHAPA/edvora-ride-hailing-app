@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { myActions } from "../redux/actions/actionTypes";
 import RideCard from "./RideCard";
 
 const PastRides = () => {
@@ -12,6 +13,11 @@ const PastRides = () => {
   });
 
   console.log(pastRides);
+  const dispatch = useDispatch();
+  dispatch({
+    type: myActions.PAST_RIDES_UPDATE,
+    payload: pastRides.length,
+  });
 
   return (
     <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">

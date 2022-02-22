@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { myActions } from "../redux/actions/actionTypes";
 import RideCard from "./RideCard";
 
 const UpcomingRides = () => {
@@ -10,8 +11,13 @@ const UpcomingRides = () => {
   const upcomingRides = availableRideFromFilter.filter((item) => {
     return item.date > todayInSeconds;
   });
+  const dispatch = useDispatch();
 
   console.log(upcomingRides);
+  dispatch({
+    type: myActions.UPCOMING_RIDES_UPDATE,
+    payload: upcomingRides.length,
+  });
 
   return (
     <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">

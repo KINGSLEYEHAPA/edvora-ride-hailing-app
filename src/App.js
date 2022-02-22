@@ -3,10 +3,15 @@ import Header from "./components/Header";
 import filterMenu from "./assets/images/Vector.png";
 import Filter from "./components/Filter";
 import { myActions } from "./redux/actions/actionTypes";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
+  const reducerState = useSelector((state) => state);
+  const nearestRideCount = reducerState.nearestRideCount;
+  const pastRideCount = reducerState.pastRideCount;
+  const upcomingRideCount = reducerState.upcomingRideCount;
+
   return (
     <div className="w-full h-screen bg-neutral-700 lg:min-w-screen">
       <Header />
@@ -23,7 +28,7 @@ function App() {
               };
             }}
           >
-            Nearest Rides{" "}
+            Nearest Rides ({nearestRideCount})
           </NavLink>
           <NavLink
             className="lg:px-0"
@@ -36,7 +41,7 @@ function App() {
               };
             }}
           >
-            Upcoming Rides (5){" "}
+            Upcoming Rides ({upcomingRideCount}){" "}
           </NavLink>
           <NavLink
             to="/past-rides"
@@ -49,7 +54,7 @@ function App() {
               };
             }}
           >
-            Past Rides (10){" "}
+            Past Rides ({pastRideCount}){" "}
           </NavLink>
         </div>
         <div
