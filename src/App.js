@@ -16,7 +16,7 @@ function App() {
     <div className="w-full min-h-screen bg-neutral-700 lg:min-w-screen w-screen">
       <Header />
       <div className=" w-screen h-20 flex flex-row justify-between items-center p-6 text-white text-md px-9  md:flex md:flex-row md: md:items-center md:p-6 md:text-white  md:justify-between lg:flex lg:justify-between lg:items-center lg:p-6 lg:text-white lg:px-9 lg:text-xl">
-        <div className=" text-xs space-x-4 text-warmGray-300 w-88 md:text-md md:ml-4 ">
+        <div className=" text-xs space-x-4 text-stone-300 w-88 md:text-md md:ml-4 ">
           <NavLink
             to="/nearest-rides"
             className=" px- 0 lg:px-0 lg:text-lg"
