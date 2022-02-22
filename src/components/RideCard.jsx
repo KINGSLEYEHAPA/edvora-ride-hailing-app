@@ -17,7 +17,7 @@ const RideCard = ({
 
   return (
     <div className=" bg-neutral-900 flex justify-between h-44  items-start mx-8 lg:mx-0  p-6 rounded-xl text-white bg-neutral-900    lg:p-6  lg:flex  ">
-      <div className="h-full">
+      <div className="h-full ssm:w-56 ssm:h-32">
         <img className="h-full md:w-full w-full" src={mapImage} alt="Map" />
       </div>
       <div className="  text-xs flex-2 ml-1 space-y-1  lg:text-sm  md:relative lg:relative md:right-20 lg:right-64 lg:ml-1 lg:space-y-2  lg:right-48">

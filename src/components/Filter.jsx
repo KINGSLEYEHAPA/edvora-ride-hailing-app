@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { myActions } from "../redux/actions/actionTypes";
-import { ride, user } from "../ride";
+import { ride } from "../ride";
 
 const Filter = () => {
   const [iconStateOne, setIconStateOne] = useState(false);

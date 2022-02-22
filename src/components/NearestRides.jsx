@@ -49,6 +49,10 @@ const NearestRides = () => {
   const sortedNearestRide = indexArray.map((item) => {
     return availableRideFromFilter[item];
   });
+  sortedNearestRide.forEach((item, index, arr) => {
+    item.distance = lowestDistanceToStationAndIndex[index][0];
+  });
+  console.log(sortedNearestRide);
 
   const dispatch = useDispatch();
   dispatch({
@@ -68,7 +72,7 @@ const NearestRides = () => {
             city={item.city}
             state={item.state}
             rideDate={item.date}
-            distance
+            distance={item.distance}
           />
         );
       })}
