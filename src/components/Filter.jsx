@@ -68,7 +68,7 @@ const Filter = () => {
   return (
     <div>
       {filterState && (
-        <div className="absolute lg:w-48 lg:h-44 lg:flex lg:flex-col lg:top-6 lg:right-2 shadow  bg-neutral-900 lg:justify-between lg:space-y-5 lg:py-4 px-5  rounded-xl">
+        <div className="absolute  w-48 h-44 flex flex-col top-6 right-24 right-4 shadow  bg-neutral-900 justify-between space-y-5 py-4 px-5 lg:right-4 shadow px-5  rounded-xl">
           <h2 className="text-neutral-700  text-md">Filters</h2>
           <hr className="text-neutral-700 border-t-3 border-neutral-700 relative bottom-3"></hr>
           <div className="flex relative">

@@ -13,13 +13,13 @@ function App() {
   const upcomingRideCount = reducerState.upcomingRideCount;
 
   return (
-    <div className="w-full h-screen bg-neutral-700 lg:min-w-screen">
+    <div className="w-full min-h-screen bg-neutral-700 lg:min-w-screen w-screen">
       <Header />
-      <div className="lg:w-full lg:h-20 lg:flex lg:justify-between lg:items-center lg:p-6 lg:text-white lg:px-9">
-        <div className="lg:space-x-4 lg:text-warmGray-300">
+      <div className=" w-screen h-20 flex flex-row justify-between items-center p-6 text-white text-md px-9          md:full md:h-20 md:flex md:flex-row md:justify-start md:items-center md:p-6 md:text-white  md:justify-between lg:flex lg:justify-between lg:items-center lg:p-6 lg:text-white lg:px-9 lg:text-xl">
+        <div className=" text-xs space-x-4 text-warmGray-300 w-88 ">
           <NavLink
             to="/nearest-rides"
-            className="lg:px-0"
+            className=" px- 0 lg:px-0 lg:text-lg"
             style={({ isActive }) => {
               return {
                 borderBottom: isActive ? "2px solid white" : "",
@@ -31,7 +31,7 @@ function App() {
             Nearest Rides ({nearestRideCount})
           </NavLink>
           <NavLink
-            className="lg:px-0"
+            className=" px- 0 lg:px-0 lg:text-lg"
             to="/upcoming-rides"
             style={({ isActive }) => {
               return {
@@ -45,7 +45,7 @@ function App() {
           </NavLink>
           <NavLink
             to="/past-rides"
-            className="lg:px-0"
+            className=" px- 0 lg:px-0 lg:text-lg"
             style={({ isActive }) => {
               return {
                 borderBottom: isActive ? "2px solid white" : "",
@@ -61,9 +61,13 @@ function App() {
           onClick={() => {
             dispatch({ type: myActions.OPEN_FILTER });
           }}
-          className="lg:flex lg:gap-2 lg:cursor-pointer lg:relative lg:left-96"
+          className=" relative flex  gap-2 cursor-pointer pr-8    flex lg:gap-2 cursor-pointer relative   md:flex  lg:gap-2 md:cursor-pointer md:relative md:left-56 lg:flex lg:gap-2 lg:cursor-pointer lg:relative lg:left-96  "
         >
-          <img className="lg:w-5 lg:h-5 lg:pt-2" src={filterMenu} alt="" />
+          <img
+            className=" w-4 h-4 lg:w-5 lg:h-5 lg:pt-2"
+            src={filterMenu}
+            alt=""
+          />
           <h4>Filters</h4>
         </div>
         <div className="relative">

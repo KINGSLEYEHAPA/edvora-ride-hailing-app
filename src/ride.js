@@ -64,7 +64,7 @@ export const ride = [
     origin_station_code: 13,
     station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
     destination_station_code: 91,
-    date: 1645475045,
+    date: 164547504555,
     map_url: "url",
     state: "Kaduna",
     city: "Sabo",

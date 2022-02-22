@@ -20,7 +20,7 @@ const PastRides = () => {
   });
 
   return (
-    <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">
+    <div className=" min-h-screen lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">
       {pastRides.map((item, index) => {
         return (
           <RideCard

@@ -61,7 +61,7 @@ const NearestRides = () => {
   });
 
   return (
-    <div className="lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">
+    <div className="  min-h-screen flex flex-col px-9 lg:flex lg:flex-col lg:px-9 space-y-4  bg-neutral-700 lg:pb-16 pb-8">
       {nearestRideCloserToday.map((item, index) => {
         return (
           <RideCard
