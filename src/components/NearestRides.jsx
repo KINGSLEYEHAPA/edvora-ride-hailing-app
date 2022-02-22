@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import RideCard from "./RideCard";
 import { user } from "../ride";
 import { myActions } from "../redux/actions/actionTypes";
 
 const NearestRides = () => {
+  const dispatch = useDispatch();
   const availableRideFromFilter = useSelector((state) => state.availableRide);
 
   const distanceFromStationArray = availableRideFromFilter.map(
@@ -54,11 +55,12 @@ const NearestRides = () => {
   });
   console.log(sortedNearestRide);
 
-  const dispatch = useDispatch();
-  dispatch({
-    type: myActions.NEAREST_RIDES_UPDATE,
-    payload: sortedNearestRide.length,
-  });
+  useEffect(() => {
+    dispatch({
+      type: myActions.NEAREST_RIDES_UPDATE,
+      payload: sortedNearestRide.length,
+    });
+  }, [dispatch]);
 
   return (
     <div className="   flex flex-col px-9 lg:flex lg:flex-col lg:px-9 space-y-4  bg-neutral-700 lg:pb-16 pb-8">
