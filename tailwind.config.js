@@ -1,13 +1,7 @@
-const colors = require("tailwindcss/colors");
-
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
-      colors: {
-        warmGray: colors.warmGray,
-        trueGray: colors.trueGray,
-      },
       screens: {
         sm: "540px",
         // => @media (min-width: 640px) { ... }
