@@ -32,7 +32,7 @@ export const ride = [
   {
     id: "004",
     origin_station_code: 13,
-    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    station_path: [13, 25, 41, 48, 59, 64, 75, 88, 91],
     destination_station_code: 91,
     date: 1644924365555555,
     map_url: "url",
@@ -42,7 +42,7 @@ export const ride = [
   {
     id: "005",
     origin_station_code: 13,
-    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    station_path: [13, 25, 41, 48, 44, 64, 75, 81, 91],
     destination_station_code: 91,
     date: 16454750930,
     map_url: "url",
@@ -62,7 +62,7 @@ export const ride = [
   {
     id: "007",
     origin_station_code: 13,
-    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    station_path: [13, 25, 41, 48, 59, 64, 15, 81, 91],
     destination_station_code: 91,
     date: 164547504555,
     map_url: "url",
@@ -72,7 +72,7 @@ export const ride = [
   {
     id: "008",
     origin_station_code: 13,
-    station_path: [13, 25, 41, 48, 59, 64, 75, 81, 91],
+    station_path: [13, 25, 41, 66, 59, 64, 75, 81, 91],
     destination_station_code: 91,
     date: 16454750003,
     map_url: "url",

@@ -38,7 +38,7 @@ const RideCard = ({
           Distance: <span className="text-white">{distance}</span>
         </p>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 w-44 ">
         <p className=" bg-black px-2 py-0.5 text-sm rounded-xl text-md  lg:bg-black lg:px-2 lg:py-0.5 lg:text-sm lg:rounded-xl">
           {city}
         </p>

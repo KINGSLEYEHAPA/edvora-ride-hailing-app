@@ -49,20 +49,16 @@ const NearestRides = () => {
   const sortedNearestRide = indexArray.map((item) => {
     return availableRideFromFilter[item];
   });
-  const todayInSeconds = new Date(new Date()).getTime() / 1000;
 
-  const nearestRideCloserToday = sortedNearestRide.filter((item) => {
-    return todayInSeconds - item.date < 86400 && item.date < todayInSeconds;
-  });
   const dispatch = useDispatch();
   dispatch({
     type: myActions.NEAREST_RIDES_UPDATE,
-    payload: nearestRideCloserToday.length,
+    payload: sortedNearestRide.length,
   });
 
   return (
-    <div className="  min-h-screen flex flex-col px-9 lg:flex lg:flex-col lg:px-9 space-y-4  bg-neutral-700 lg:pb-16 pb-8">
-      {nearestRideCloserToday.map((item, index) => {
+    <div className="   flex flex-col px-9 lg:flex lg:flex-col lg:px-9 space-y-4  bg-neutral-700 lg:pb-16 pb-8">
+      {sortedNearestRide.map((item, index) => {
         return (
           <RideCard
             key={index}
