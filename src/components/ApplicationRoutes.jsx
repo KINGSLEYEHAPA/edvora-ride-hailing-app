@@ -13,6 +13,7 @@ const ApplicationRoutes = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route index element={<NearestRides />} />
             <Route path="/nearest-rides" element={<NearestRides />} />
             <Route path="/upcoming-rides" element={<UpcomingRides />} />
             <Route path="/past-rides" element={<PastRides />} />

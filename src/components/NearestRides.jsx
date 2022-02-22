@@ -53,18 +53,21 @@ const NearestRides = () => {
   sortedNearestRide.forEach((item, index, arr) => {
     item.distance = lowestDistanceToStationAndIndex[index][0];
   });
-  console.log(sortedNearestRide);
+  const todayInSeconds = new Date(new Date()).getTime() / 1000;
+  const upcomingRides = sortedNearestRide.filter((item) => {
+    return item.date - todayInSeconds < 86400 && item.date < todayInSeconds;
+  });
 
   useEffect(() => {
     dispatch({
       type: myActions.NEAREST_RIDES_UPDATE,
-      payload: sortedNearestRide.length,
+      payload: upcomingRides.length,
     });
-  }, [dispatch]);
+  }, [dispatch, upcomingRides]);
 
   return (
     <div className="   flex flex-col px-9 lg:flex lg:flex-col lg:px-9 space-y-4  bg-neutral-700 lg:pb-16 pb-8">
-      {sortedNearestRide.map((item, index) => {
+      {upcomingRides.map((item, index) => {
         return (
           <RideCard
             key={index}

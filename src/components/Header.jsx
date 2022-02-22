@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import profileImg from "../assets/images/Rectangle.png";
 
 const Header = () => {
   return (
     <div className="text-white bg-neutral-900 flex lg:flex-row justify-between items-center px-6 py-4 ">
-      <p className="text-3xl cursor-pointer">Edvora</p>
+      <p className="text-3xl cursor-pointer">
+        <Link to="/">Edvora</Link>
+      </p>
       <div className="flex justify-end items-center gap-6">
         <p>Dhruv Singh</p>
         <img src={profileImg} alt="" />
