@@ -1,3 +1,7 @@
+Edvora Ride Hailing application Test
+
+The application takes a user station code and display rides closest to his station,past and upcoming rides.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
