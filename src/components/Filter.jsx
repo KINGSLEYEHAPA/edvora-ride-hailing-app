@@ -56,7 +56,13 @@ const Filter = () => {
     ) {
       dispatch({ type: myActions.RIDE_DATA, payload: ride });
     }
-  }, [dispatch, filterByCity, filterByState]);
+  }, [
+    dispatch,
+    filterByCity,
+    filterByState,
+    availableRideFilteredByCity.length,
+    availableRideFilteredByState.length,
+  ]);
 
   let uniqueRideDataByState = [
     ...new Map(ride.map((item) => [item["state"], item])).values(),

@@ -19,7 +19,7 @@ const PastRides = () => {
       type: myActions.PAST_RIDES_UPDATE,
       payload: pastRides.length,
     });
-  }, [dispatch]);
+  }, [dispatch, PastRides]);
 
   return (
     <div className="  lg:flex lg:flex-col lg:px-9 space-y-4  lg:bg-neutral-700 lg:pb-16">

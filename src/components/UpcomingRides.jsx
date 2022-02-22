@@ -18,7 +18,7 @@ const UpcomingRides = () => {
       type: myActions.UPCOMING_RIDES_UPDATE,
       payload: upcomingRides.length,
     });
-  }, [dispatch]);
+  }, [dispatch, upcomingRides]);
 
   console.log(upcomingRides);
 
